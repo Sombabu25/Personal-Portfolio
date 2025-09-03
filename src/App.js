@@ -386,13 +386,14 @@ const Index = () => {
               </div>
               <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10 flex items-center justify-center">
 <a
-  href="/Sombabu_Patel_Resume.pdf"
+  href="https://sombabu25.github.io/Personal-Portfolio/Sombabu_Patel_Resume.pdf"
   download="Sombabu_Patel_Resume.pdf"
   className="flex items-center space-x-3 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 shadow-lg"
 >
   <Download className="w-5 h-5" />
   <span className="font-semibold">Download Resume</span>
 </a>
+
 
 
               </div>
