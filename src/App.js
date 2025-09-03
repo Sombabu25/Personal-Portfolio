@@ -5,6 +5,7 @@ import profileImage from './assets/profile.jpg'; // Ensure this path is correct
 const Index = () => {
   const [activeSection, setActiveSection] = useState('about');
 
+  
   useEffect(() => {
     const handleScroll = () => {
       const sections = ['about', 'skills', 'projects', 'certifications', 'education', 'contact'];
