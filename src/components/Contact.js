@@ -2,6 +2,23 @@ import React from 'react';
 import { Mail, Phone, Download, Github, Linkedin, MapPin } from 'lucide-react';
 
 const Contact = () => {
+  const handleDownloadResume = async () => {
+    try {
+      const response = await fetch(`${process.env.PUBLIC_URL}/Sombabu_Patel_Resume.pdf`);
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Sombabu_Patel_Resume.pdf';
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      // Fallback to opening in new tab if download fails
+      window.open(`${process.env.PUBLIC_URL}/Sombabu_Patel_Resume.pdf`, '_blank');
+    }
+  };
   const contactInfo = [
     {
       icon: <Mail className="w-5 h-5" />,
@@ -103,14 +120,13 @@ const Contact = () => {
                     Download my resume to learn more about my experience, skills, and projects.
                   </p>
                   
-                  <a
-                    href={`${process.env.PUBLIC_URL}/Sombabu_Patel_Resume.pdf`}
-                    download="Sombabu_Patel_Resume.pdf"
-                    className="inline-flex items-center bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-3 rounded-full font-semibold text-white hover:from-purple-600 hover:to-pink-600 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50"
+                  <button
+                    onClick={handleDownloadResume}
+                    className="inline-flex items-center bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-3 rounded-full font-semibold text-white hover:from-purple-600 hover:to-pink-600 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50 cursor-pointer"
                   >
                     <Download className="w-5 h-5 mr-2" />
                     Download Resume
-                  </a>
+                  </button>
                 </div>
               </div>
               
