@@ -104,7 +104,7 @@ const Contact = () => {
                   </p>
                   
                   <a
-                    href="/Sombabu_Patel_Resume.pdf"
+                    href={`${process.env.PUBLIC_URL}/Sombabu_Patel_Resume.pdf`}
                     download="Sombabu_Patel_Resume.pdf"
                     className="inline-flex items-center bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-3 rounded-full font-semibold text-white hover:from-purple-600 hover:to-pink-600 transition-all duration-300 hover:shadow-lg hover:shadow-purple-500/50"
                   >
