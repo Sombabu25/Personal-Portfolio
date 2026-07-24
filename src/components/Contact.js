@@ -2,22 +2,15 @@ import React from 'react';
 import { Mail, Phone, Download, Github, Linkedin, MapPin } from 'lucide-react';
 
 const Contact = () => {
-  const handleDownloadResume = async () => {
-    try {
-      const response = await fetch(`${process.env.PUBLIC_URL}/Sombabu_Patel_Resume.pdf`);
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'Sombabu_Patel_Resume.pdf';
-      document.body.appendChild(a);
-      a.click();
-      a.remove();
-      window.URL.revokeObjectURL(url);
-    } catch (error) {
-      // Fallback to opening in new tab if download fails
-      window.open(`${process.env.PUBLIC_URL}/Sombabu_Patel_Resume.pdf`, '_blank');
-    }
+  const handleDownloadResume = () => {
+    const link = document.createElement('a');
+    link.href = `${process.env.PUBLIC_URL}/Sombabu_Patel_Resume.pdf`;
+    link.download = 'Sombabu_Patel_Resume.pdf';
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   };
   const contactInfo = [
     {
